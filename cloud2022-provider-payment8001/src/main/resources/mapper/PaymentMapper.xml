@@ -9,6 +9,9 @@
             <result property="serial" column="payment_serial" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <sql id="Base_Column_List">
+    payment_id,payment_serial
+    </sql>
 
     <insert id="insertSelective">
         insert into payment_1
@@ -22,4 +25,11 @@
             <if test="serial != null">#{serial,jdbcType=VARCHAR},</if>
         </trim>
     </insert>
+    <select id="getById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from payment_1
+        where
+        payment_id = #{id,jdbcType=NUMERIC}
+    </select>
 </mapper>

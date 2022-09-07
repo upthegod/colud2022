@@ -1,4 +1,5 @@
 package com.cloudpayment8001.mapper;
+import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -18,6 +19,13 @@ public interface PaymentMapper extends BaseMapper<Payment> {
 
     //选择性添加
     int insertSelective(Payment payment);
+
+    //根据id获取
+    List<Payment> getById(@Param("id") Long id);
+
+
+
+
 
 }
 

@@ -18,12 +18,18 @@ public class Mybatis {
 
     @Test
     public void test(){
-        paymentMapper.insertSelective(new Payment(null,"559"));
+        paymentMapper.insertSelective(new Payment(999L,"hello"));
     }
 
     @Test
     public void test1(){
         paymentMapper.insert(new Payment(null,"558"));
     }
+    @Test
+    public void test12(){
+        System.out.println(paymentMapper.getById(1L));
+    }
+
+
 
 }

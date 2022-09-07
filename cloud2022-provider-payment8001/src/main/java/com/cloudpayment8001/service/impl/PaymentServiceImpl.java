@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cloudpayment8001.pojo.Payment;
 import com.cloudpayment8001.service.PaymentService;
 import com.cloudpayment8001.mapper.PaymentMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +15,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PaymentServiceImpl extends ServiceImpl<PaymentMapper, Payment>
     implements PaymentService{
+
+    @Autowired
+    PaymentMapper paymentMapper;
+
+
+    @Override
+    public int create(Payment payment) {
+        return paymentMapper.insertSelective(payment);
+    }
 
 }
 
